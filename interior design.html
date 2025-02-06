@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Design Program - Technical Program School</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body Styles */
+body {
+    background-color: #f4f7fc;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+    animation: fadeInBody 1s ease-out;
+}
+
+/* Fade-in animation for body */
+@keyframes fadeInBody {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Header Styles */
+header {
+    background-color: #00509E;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideInDown 1s ease-out;
+}
+
+/* Slide-in from top for header */
+@keyframes slideInDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+header img {
+    max-width: 120px;
+    display: block;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-top: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Portal Link in the Top Right Corner */
+.portal-link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.portal-link:hover {
+    color: #ffd700;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: #F1F1F1;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: slideInUp 1s ease-out;
+}
+
+/* Slide-in from bottom for nav */
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #00509E;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #0077cc;
+    transform: translateY(-3px); /* Slight lift effect on hover */
+}
+
+/* Hero Section */
+.hero {
+    background-color: #E3F2FD;
+    padding: 80px 0;
+    text-align: center;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    color: #00509E;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Fade-in animation for hero */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Program Section */
+.program-section {
+    background-color: #FFF;
+    border: 1px solid #ddd;
+    margin: 20px 0;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Fade-in and slide-up animation for program sections */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.program-section h2 {
+    font-size: 2rem;
+    color: #00509E;
+    margin-bottom: 10px;
+}
+
+.program-section h3 {
+    font-size: 1.4rem;
+    margin-top: 15px;
+    color: #333;
+}
+
+.program-section p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.program-section ul {
+    list-style-type: square;
+    margin-left: 20px;
+    font-size: 1rem;
+}
+
+.program-section ul li {
+    margin-bottom: 5px;
+}
+
+.program-section .cta-btn {
+    display: inline-block;
+    background-color: #00509E;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.program-section .cta-btn:hover {
+    background-color: #003f72;
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Footer Section */
+footer {
+    background-color: #00509E;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer .social-links a {
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+    font-size: 1.2rem;
+}
+
+footer .social-links a:hover {
+    color: #ffcc00;
+}
+
+/* Bottom Left Fixed Image */
+.bottom-left-img {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 100px;
+    z-index: 1000;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: bounceIn 1s ease-out infinite alternate;
+}
+
+/* Bounce-in animation for the bottom left image */
+@keyframes bounceIn {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Container for consistent width */
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .program-section {
+        padding: 20px;
+    }
+
+    .program-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .program-section ul {
+        font-size: 0.9rem;
+    }
+
+    .bottom-left-img {
+        width: 80px;
+        bottom: 15px;
+        left: 15px;
+    }
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="file:///C:/Users/bt1it/Downloads/thumbnail_Outlook-vpo5mreh.png" alt="RHHS Logo">
+            <h1>Interior Design Program</h1>
+            <p>Technical Program School</p>
+            <a href="https://portal.rhhs.edu.lb" class="portal-link" target="_blank">Rhhs Portal</a>
+        </div>
+    </header>
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="nursing.html">Nursing</a></li>
+                <li><a href="it.html">IT</a></li>
+                <li><a href="computer science.html">Computer Science</a></li>
+                <li><a href="informatics">Informatics Accounting</a></li>
+				<li><a href="interior design.html">Interior Design</a></li>
+                <li><a href="addmission.html">Addmission</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="container">
+            <h2>Welcome to the Interior Design Program</h2>
+            <p>Explore the art and science of creating functional and aesthetic spaces in our Interior Design program.</p>
+        </div>
+    </section>
+    <section class="program-details">
+        <div class="container">
+            <h3>Course Details</h3>
+            <ul>
+                <li>Principles of Interior Design</li>
+                <li>Space Planning and Layout</li>
+                <li>Color Theory and Materials</li>
+                <li>Lighting and Ambiance</li>
+                <li>Interior Design Software</li>
+            </ul>
+            <h3>Faculty</h3>
+            <p>Our faculty comprises experienced designers and industry professionals.</p>
+            <h3>Career Opportunities</h3>
+            <p>Graduates can work as interior designers, design consultants, or in project management roles.</p>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>Contact us at: info@technicalprogramschool.com</p>
+            <p>&copy; 2025 Technical Program School. All rights reserved.</p>
+        </div>
+    </footer>
+    <img src="file:///C:/Users/bt1it/Downloads/thumbnail_Outlook-vpo5mreh.png" alt="Bottom Left Image" class="bottom-left-img">
+</body>
+</html>
